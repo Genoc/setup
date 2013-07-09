@@ -34,10 +34,21 @@ fi
 if [ -d .emacs.d/ ]; then
     mv .emacs.d .emacs.d~
 fi
-git clone https://github.com/startup-class/dotfiles.git
+git clone https://github.com/Genoc/dotfiles.git
 ln -sb dotfiles/.screenrc .
 ln -sb dotfiles/.bash_profile .
 ln -sb dotfiles/.bashrc .
 ln -sb dotfiles/.bashrc_custom .
 ln -sf dotfiles/.emacs.d .
 
+# install heroku
+wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+
+# setup heroku and SSH key (first two steps require manual input)
+heroku login
+ssh-keygen -t rsa
+heroku keys:add
+
+# setup github (TODO)
+git config --global user.name "Nitin Viswanathan"
+git config --global user.email "nitin.viswanathan@gmail.com"
