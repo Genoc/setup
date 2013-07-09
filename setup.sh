@@ -46,9 +46,10 @@ wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 
 # setup heroku and SSH key (first two steps require manual input)
 heroku login
-ssh-keygen -t rsa
+ssh-keygen -t rsa -C "nitin.viswanathan@gmail.com"
 heroku keys:add
 
 # setup github (TODO)
 git config --global user.name "Nitin Viswanathan"
 git config --global user.email "nitin.viswanathan@gmail.com"
+# have to go to github.com and enter the public rsa key in manually
